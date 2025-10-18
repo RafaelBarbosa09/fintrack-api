@@ -63,9 +63,6 @@ describe('DeleteTransactionUseCase', () => {
       repository.findById = vi.fn().mockResolvedValue(null);
 
       await expect(useCase.execute(id)).rejects.toThrow(NotFoundException);
-      await expect(useCase.execute(id)).rejects.toThrow(
-        `Transaction with id ${id} not found`,
-      );
       expect(repository.delete).not.toHaveBeenCalled();
     });
 
@@ -98,4 +95,3 @@ describe('DeleteTransactionUseCase', () => {
     });
   });
 });
-

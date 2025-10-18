@@ -25,36 +25,10 @@
 
 **FinTrack API** - Sistema de gestão financeira pessoal construído com [NestJS](https://github.com/nestjs/nest) seguindo **Clean Architecture**, **Hexagonal Architecture** e princípios **SOLID**.
 
-### 🎯 Arquitetura
-
-Este projeto implementa as melhores práticas de arquitetura de software:
-
-- ✅ **Clean Architecture** - Separação clara de camadas (Domain, Application, Infrastructure, Interface Adapters)
-- ✅ **Hexagonal Architecture** - Ports & Adapters pattern
-- ✅ **SOLID Principles** - Todos os 5 princípios aplicados
-- ✅ **Dependency Inversion** - Use cases dependem de abstrações, não de implementações
-- ✅ **Testabilidade** - Testes unitários com mocks fáceis
-- ✅ **Prisma ORM** - Type-safe database access
-
-### 📁 Estrutura do Projeto
-
-```
-src/transactions/
-├── domain/              # Entidades e regras de negócio
-├── application/         # Casos de uso (business logic)
-├── infrastructure/      # Prisma, DB, implementações
-└── interface-adapters/  # Controllers, DTOs
-```
-
 ### 📚 Documentação Completa
 
-- **[RESUMO.md](./RESUMO.md)** - Visão geral rápida
-- **[QUICKSTART.md](./QUICKSTART.md)** - Como começar
 - **[README_ARCHITECTURE.md](./README_ARCHITECTURE.md)** - Arquitetura detalhada
-- **[ARCHITECTURE_DIAGRAM.md](./ARCHITECTURE_DIAGRAM.md)** - Diagramas visuais
 - **[SETUP.md](./SETUP.md)** - Instalação e configuração
-- **[TESTING.md](./TESTING.md)** - Estratégia de testes
-- **[ESTRUTURA_FINAL.md](./ESTRUTURA_FINAL.md)** - Estrutura completa
 
 ## Project setup
 
@@ -66,64 +40,24 @@ $ yarn install
 
 ```bash
 # development
-$ yarn run start
+$ yarn start
 
 # watch mode
-$ yarn run start:dev
+$ yarn start:dev
 
 # production mode
-$ yarn run start:prod
+$ yarn start:prod
 ```
 
 ## Run tests
 
 ```bash
 # unit tests
-$ yarn run test
+$ yarn test
 
 # e2e tests
-$ yarn run test:e2e
+$ yarn test:e2e
 
 # test coverage
-$ yarn run test:cov
+$ yarn run test:coverage
 ```
-
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
-
-```bash
-$ yarn install -g @nestjs/mau
-$ mau deploy
-```
-
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
-
-## Resources
-
-Check out a few resources that may come in handy when working with NestJS:
-
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).

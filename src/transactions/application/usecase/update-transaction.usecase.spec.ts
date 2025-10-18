@@ -113,9 +113,6 @@ describe('UpdateTransactionUseCase', () => {
       await expect(useCase.execute(id, { amount: 1000 })).rejects.toThrow(
         NotFoundException,
       );
-      await expect(useCase.execute(id, { amount: 1000 })).rejects.toThrow(
-        `Transaction with id ${id} not found`,
-      );
     });
 
     it('should throw an error if the repository fails', async () => {
@@ -137,4 +134,3 @@ describe('UpdateTransactionUseCase', () => {
     });
   });
 });
-

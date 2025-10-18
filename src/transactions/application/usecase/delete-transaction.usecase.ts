@@ -10,9 +10,8 @@ export class DeleteTransactionUseCase {
 
   async execute(id: string): Promise<void> {
     const transaction = await this.transactionRepository.findById(id);
-
     if (!transaction) {
-      throw new NotFoundException(`Transaction with id ${id} not found`);
+      throw new NotFoundException(`Transação não encontrada`);
     }
 
     await this.transactionRepository.delete(id);

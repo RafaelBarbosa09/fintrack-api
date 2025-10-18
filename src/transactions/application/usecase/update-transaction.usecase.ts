@@ -22,9 +22,8 @@ export class UpdateTransactionUseCase {
     input: UpdateTransactionInput,
   ): Promise<Transaction> {
     const existingTransaction = await this.transactionRepository.findById(id);
-
     if (!existingTransaction) {
-      throw new NotFoundException(`Transaction with id ${id} not found`);
+      throw new NotFoundException(`Transação não encontrada`);
     }
 
     const updatedData: Partial<Transaction> = {

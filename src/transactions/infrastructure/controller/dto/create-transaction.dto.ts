@@ -1,3 +1,4 @@
+import { ApiProperty } from '@nestjs/swagger';
 import { TransactionType } from '../../../domain/enum/transaction-type.enum';
 
 /**
@@ -6,8 +7,27 @@ import { TransactionType } from '../../../domain/enum/transaction-type.enum';
  * Define o contrato da API (entrada de dados)
  */
 export class CreateTransactionDto {
+  @ApiProperty({
+    description: 'Título da transação',
+    example: 'Salário',
+  })
   title: string;
+
+  @ApiProperty({
+    description: 'Valor da transação',
+    example: 1000,
+  })
   amount: number;
+
+  @ApiProperty({
+    description: 'Tipo da transação',
+    example: TransactionType.INCOME,
+  })
   type: TransactionType;
+
+  @ApiProperty({
+    description: 'Categoria da transação',
+    example: 'Trabalho',
+  })
   category: string;
 }

@@ -46,19 +46,6 @@ yarn build
 yarn start:prod
 ```
 
-## 🧪 Testes
-
-```bash
-# Executar testes
-yarn test
-
-# Executar testes com coverage
-yarn test:coverage
-
-# Abrir interface de testes
-yarn test:ui
-```
-
 ## 📡 API Endpoints
 
 A API estará disponível em `http://localhost:3333`
