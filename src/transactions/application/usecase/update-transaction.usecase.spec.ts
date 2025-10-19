@@ -2,7 +2,10 @@ import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { Test, TestingModule } from '@nestjs/testing';
 import { NotFoundException } from '@nestjs/common';
 import { UpdateTransactionUseCase } from './update-transaction.usecase';
-import { ITransactionRepository } from '../../domain/repository/transaction-repository.interface';
+import {
+  ITransactionRepository,
+  TRANSACTION_REPOSITORY,
+} from '../../domain/repository/transaction-repository.interface';
 import { Transaction } from '../../domain/entity/transaction.entity';
 import { TransactionType } from '../../domain/enum/transaction-type.enum';
 
@@ -23,14 +26,14 @@ describe('UpdateTransactionUseCase', () => {
       providers: [
         UpdateTransactionUseCase,
         {
-          provide: 'ITransactionRepository',
+          provide: TRANSACTION_REPOSITORY,
           useValue: mockRepository,
         },
       ],
     }).compile();
 
     useCase = module.get<UpdateTransactionUseCase>(UpdateTransactionUseCase);
-    repository = module.get<ITransactionRepository>('ITransactionRepository');
+    repository = module.get<ITransactionRepository>(TRANSACTION_REPOSITORY);
 
     vi.clearAllMocks();
   });
@@ -45,7 +48,7 @@ describe('UpdateTransactionUseCase', () => {
         title: 'Salário',
         amount: 5000,
         type: TransactionType.INCOME,
-        category: 'Trabalho',
+        categoryId: '123e4567-e89b-12d3-a456-426614174000',
       });
 
       const updateData = {
@@ -81,7 +84,7 @@ describe('UpdateTransactionUseCase', () => {
         title: 'Salário',
         amount: 5000,
         type: TransactionType.INCOME,
-        category: 'Trabalho',
+        categoryId: '123e4567-e89b-12d3-a456-426614174000',
       });
 
       const updateData = { amount: 7000 };
@@ -120,7 +123,7 @@ describe('UpdateTransactionUseCase', () => {
         title: 'Test',
         amount: 100,
         type: TransactionType.INCOME,
-        category: 'Test',
+        categoryId: '123e4567-e89b-12d3-a456-426614174000',
       });
 
       repository.findById = vi.fn().mockResolvedValue(transaction);

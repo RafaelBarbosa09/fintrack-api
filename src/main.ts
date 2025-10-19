@@ -10,6 +10,7 @@ async function bootstrap() {
     .setDescription('API para gestão financeira pessoal')
     .setVersion('1.0')
     .addTag('transactions', 'Operações de transações financeiras')
+    .addTag('categories', 'Operações de categorias para transações')
     .build();
 
   const document = SwaggerModule.createDocument(app, config);

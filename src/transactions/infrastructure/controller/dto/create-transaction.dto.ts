@@ -26,8 +26,9 @@ export class CreateTransactionDto {
   type: TransactionType;
 
   @ApiProperty({
-    description: 'Categoria da transação',
-    example: 'Trabalho',
+    description: 'ID da categoria',
+    example: '123e4567-e89b-12d3-a456-426614174000',
+    required: false,
   })
-  category: string;
+  categoryId?: string;
 }

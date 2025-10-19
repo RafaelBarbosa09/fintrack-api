@@ -1,10 +1,13 @@
 import { Inject, Injectable, NotFoundException } from '@nestjs/common';
-import { ITransactionRepository } from '../../domain/repository/transaction-repository.interface';
+import {
+  ITransactionRepository,
+  TRANSACTION_REPOSITORY,
+} from '../../domain/repository/transaction-repository.interface';
 
 @Injectable()
 export class DeleteTransactionUseCase {
   constructor(
-    @Inject('ITransactionRepository')
+    @Inject(TRANSACTION_REPOSITORY)
     private readonly transactionRepository: ITransactionRepository,
   ) {}
 

@@ -15,10 +15,22 @@ model Transaction {
   title     String
   amount    Float
   type      String
-  category  String
+  categoryId String?
+  category  Category? @relation(fields: [categoryId], references: [id])
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   @@map("transactions")
+}
+
+model Category {
+  id String  @id @default(uuid())
+  name String
+  description String?
+  transactions Transaction[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("categories")
 }
 

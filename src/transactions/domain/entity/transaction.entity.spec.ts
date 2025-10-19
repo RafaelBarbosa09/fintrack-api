@@ -9,7 +9,7 @@ describe('Transaction Entity', () => {
         title: 'Salário',
         amount: 5000,
         type: TransactionType.INCOME,
-        category: 'Trabalho',
+        categoryId: 'category-id-123',
       });
 
       expect(transaction).toBeDefined();
@@ -17,7 +17,7 @@ describe('Transaction Entity', () => {
       expect(transaction.title).toBe('Salário');
       expect(transaction.amount).toBe(5000);
       expect(transaction.type).toBe(TransactionType.INCOME);
-      expect(transaction.category).toBe('Trabalho');
+      expect(transaction.categoryId).toBe('category-id-123');
       expect(transaction.createdAt).toBeInstanceOf(Date);
       expect(transaction.updatedAt).toBeUndefined();
     });
@@ -27,11 +27,12 @@ describe('Transaction Entity', () => {
         title: 'Aluguel',
         amount: 1500,
         type: TransactionType.EXPENSE,
-        category: 'Moradia',
+        categoryId: 'category-id-456',
       });
 
       expect(transaction.type).toBe(TransactionType.EXPENSE);
       expect(transaction.amount).toBe(1500);
+      expect(transaction.categoryId).toBe('category-id-456');
     });
 
     it('deve gerar ID único automaticamente', () => {
@@ -100,8 +101,8 @@ describe('Transaction Entity', () => {
         id: 'db-id-123',
         title: 'Salário DB',
         amount: 6000,
-        type: 'INCOME',
-        category: 'Trabalho',
+        type: 'RECEITA',
+        categoryId: 'category-id-789',
         createdAt: new Date('2024-01-01'),
         updatedAt: new Date('2024-01-02'),
       };
@@ -112,7 +113,7 @@ describe('Transaction Entity', () => {
       expect(transaction.title).toBe(dbData.title);
       expect(transaction.amount).toBe(dbData.amount);
       expect(transaction.type).toBe(TransactionType.INCOME);
-      expect(transaction.category).toBe(dbData.category);
+      expect(transaction.categoryId).toBe(dbData.categoryId);
       expect(transaction.createdAt).toEqual(dbData.createdAt);
       expect(transaction.updatedAt).toEqual(dbData.updatedAt);
     });
@@ -122,8 +123,8 @@ describe('Transaction Entity', () => {
         id: 'db-id-456',
         title: 'Compras',
         amount: 300,
-        type: 'EXPENSE',
-        category: 'Alimentação',
+        type: 'DESPESA',
+        categoryId: 'category-id-101',
         createdAt: new Date(),
         updatedAt: null,
       };
@@ -131,6 +132,7 @@ describe('Transaction Entity', () => {
       const transaction = Transaction.restore(dbData);
 
       expect(transaction.type).toBe(TransactionType.EXPENSE);
+      expect(transaction.categoryId).toBe('category-id-101');
       expect(transaction.updatedAt).toBeUndefined();
     });
 
@@ -139,8 +141,8 @@ describe('Transaction Entity', () => {
         id: 'test-id',
         title: 'Test',
         amount: 100,
-        type: 'INCOME',
-        category: 'Test',
+        type: 'RECEITA',
+        categoryId: null,
         createdAt: new Date(),
         updatedAt: null,
       };
@@ -148,7 +150,7 @@ describe('Transaction Entity', () => {
       const transaction = Transaction.restore(dbData);
 
       expect(transaction.updatedAt).toBeUndefined();
+      expect(transaction.categoryId).toBeUndefined();
     });
   });
 });
-

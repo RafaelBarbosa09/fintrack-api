@@ -1,11 +1,14 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { Transaction } from '../../domain/entity/transaction.entity';
-import { ITransactionRepository } from '../../domain/repository/transaction-repository.interface';
+import {
+  ITransactionRepository,
+  TRANSACTION_REPOSITORY,
+} from '../../domain/repository/transaction-repository.interface';
 
 @Injectable()
 export class GetTransactionsUseCase {
   constructor(
-    @Inject('ITransactionRepository')
+    @Inject(TRANSACTION_REPOSITORY)
     private readonly transactionRepository: ITransactionRepository,
   ) {}
 

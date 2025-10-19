@@ -6,7 +6,7 @@ type TransactionProps = {
   title: string;
   amount: number;
   type: TransactionType;
-  category: string;
+  categoryId?: string;
   createdAt: Date;
   updatedAt?: Date;
 };
@@ -16,7 +16,7 @@ export class Transaction {
   title: string;
   amount: number;
   type: TransactionType;
-  category: string;
+  categoryId?: string;
   createdAt: Date;
   updatedAt?: Date;
 
@@ -25,7 +25,7 @@ export class Transaction {
     title,
     amount,
     type,
-    category,
+    categoryId,
     createdAt,
     updatedAt,
   }: TransactionProps) {
@@ -33,7 +33,7 @@ export class Transaction {
     this.title = title;
     this.amount = amount;
     this.type = type;
-    this.category = category;
+    this.categoryId = categoryId;
     this.createdAt = createdAt;
     this.updatedAt = updatedAt;
   }
@@ -43,7 +43,7 @@ export class Transaction {
     title,
     amount,
     type,
-    category,
+    categoryId,
     createdAt,
     updatedAt,
   }: Omit<TransactionProps, 'id' | 'createdAt' | 'updatedAt'> & {
@@ -56,7 +56,7 @@ export class Transaction {
       title,
       amount,
       type,
-      category,
+      categoryId,
       createdAt: createdAt ?? new Date(),
       updatedAt,
     });
@@ -69,7 +69,7 @@ export class Transaction {
     title,
     amount,
     type,
-    category,
+    categoryId,
     createdAt,
     updatedAt,
   }: TransactionDatabase): Transaction {
@@ -78,7 +78,7 @@ export class Transaction {
       title,
       amount,
       type: type as TransactionType,
-      category,
+      categoryId: categoryId ?? undefined,
       createdAt,
       updatedAt: updatedAt ?? undefined,
     });

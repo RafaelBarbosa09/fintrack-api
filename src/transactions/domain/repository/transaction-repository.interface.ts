@@ -12,3 +12,5 @@ export interface ITransactionRepository {
   update(id: string, transaction: Partial<Transaction>): Promise<Transaction>;
   delete(id: string): Promise<void>;
 }
+
+export const TRANSACTION_REPOSITORY = 'ITransactionRepository';

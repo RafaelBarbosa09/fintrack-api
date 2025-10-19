@@ -60,7 +60,7 @@ describe('CreateTransactionUseCase', () => {
           title: input.title,
           amount: input.amount,
           type: input.type,
-          category: input.category,
+          categoryId: input.categoryId,
         }),
       );
     });
@@ -70,7 +70,7 @@ describe('CreateTransactionUseCase', () => {
         title: 'Aluguel',
         amount: 1500,
         type: TransactionType.EXPENSE,
-        category: 'Moradia',
+        categoryId: 'category-id-456',
       };
 
       const expectedTransaction = Transaction.create(input);

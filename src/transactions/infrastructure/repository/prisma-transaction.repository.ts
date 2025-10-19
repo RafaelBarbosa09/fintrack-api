@@ -22,7 +22,7 @@ export class PrismaTransactionRepository implements ITransactionRepository {
         title: transaction.title,
         amount: transaction.amount,
         type: transaction.type,
-        category: transaction.category,
+        categoryId: transaction.categoryId,
         createdAt: transaction.createdAt,
       },
     });
@@ -32,7 +32,7 @@ export class PrismaTransactionRepository implements ITransactionRepository {
       title: created.title,
       amount: created.amount,
       type: created.type,
-      category: created.category,
+      categoryId: created.categoryId,
       createdAt: created.createdAt,
       updatedAt: created.updatedAt,
     });
@@ -49,7 +49,7 @@ export class PrismaTransactionRepository implements ITransactionRepository {
         title: transaction.title,
         amount: transaction.amount,
         type: transaction.type,
-        category: transaction.category,
+        categoryId: transaction.categoryId,
         createdAt: transaction.createdAt,
         updatedAt: transaction.updatedAt,
       }),
@@ -70,7 +70,7 @@ export class PrismaTransactionRepository implements ITransactionRepository {
       title: transaction.title,
       amount: transaction.amount,
       type: transaction.type,
-      category: transaction.category,
+      categoryId: transaction.categoryId,
       createdAt: transaction.createdAt,
       updatedAt: transaction.updatedAt,
     });
@@ -83,7 +83,7 @@ export class PrismaTransactionRepository implements ITransactionRepository {
         title: data.title,
         amount: data.amount,
         type: data.type,
-        category: data.category,
+        categoryId: data.categoryId,
         updatedAt: data.updatedAt,
       },
     });
@@ -93,7 +93,7 @@ export class PrismaTransactionRepository implements ITransactionRepository {
       title: updated.title,
       amount: updated.amount,
       type: updated.type,
-      category: updated.category,
+      categoryId: updated.categoryId,
       createdAt: updated.createdAt,
       updatedAt: updated.updatedAt,
     });

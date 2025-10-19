@@ -7,7 +7,7 @@ type CreateTransactionInput = {
   title: string;
   amount: number;
   type: TransactionType;
-  category: string;
+  categoryId?: string;
 };
 
 @Injectable()
@@ -22,7 +22,7 @@ export class CreateTransactionUseCase {
       title: input.title,
       amount: input.amount,
       type: input.type,
-      category: input.category,
+      categoryId: input.categoryId,
     });
 
     return await this.transactionRepository.create(transaction);

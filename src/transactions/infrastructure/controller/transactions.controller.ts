@@ -18,12 +18,6 @@ import { CreateTransactionDto } from '../../infrastructure/controller/dto/create
 import { UpdateTransactionDto } from '../../infrastructure/controller/dto/update-transaction.dto';
 import { ApiTags, ApiOperation, ApiResponse, ApiParam } from '@nestjs/swagger';
 
-/**
- * CONTROLLER - Interface Adapter
- * Camada de Interface Adapters
- * Converte requisições HTTP em chamadas para Use Cases
- * Não contém lógica de negócio, apenas orquestração
- */
 @ApiTags('transactions')
 @Controller('transactions')
 export class TransactionsController {

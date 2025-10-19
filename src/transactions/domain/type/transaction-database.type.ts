@@ -3,7 +3,7 @@ export type TransactionDatabase = {
   title: string;
   amount: number;
   type: string;
-  category: string;
+  categoryId: string | null;
   createdAt: Date;
   updatedAt: Date | null;
 };
